@@ -1,0 +1,33 @@
+name: Monitoramento de Anúncios
+
+on:
+  schedule:
+    # Executa no minuto 0 de cada hora, dia, mês e ano
+    # Ou seja executa a cada 1h no minuto 0
+    - cron: "0 * * * *"
+
+jobs:
+  monitoramento:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checar código do repositório
+      uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+
+    - name: Instalar dependências
+      run: pip install requests
+
+    - name: Executar o script de monitoramento
+      env:
+        META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+        GOOGLE_ACCESS_TOKEN: ${{ secrets.GOOGLE_ACCESS_TOKEN }}
+        EMAIL: ${{ secrets.EMAIL }}
+        EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        AD_ACCOUNT_ID: ${{ secrets.AD_ACCOUNT_ID }}
+      run: python monitoramento.py
