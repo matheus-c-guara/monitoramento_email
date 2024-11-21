@@ -1,0 +1,6 @@
+smtplib
+email
+slack_sdk
+numpy
+pandas
+requests
