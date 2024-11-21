@@ -1,0 +1,25 @@
+name: Enviar Mensagem para o Slack
+
+# Permite executar manualmente
+on:
+  workflow_dispatch:
+
+jobs:
+  send_slack_message:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Instalar dependências
+      run: |
+        pip install slack-sdk
+
+    - name: Enviar mensagem para o Slack
+      env:
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+      run: |
+        python teste_slack.py
