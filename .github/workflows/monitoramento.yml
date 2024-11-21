@@ -4,7 +4,7 @@ on:
   schedule:
     # Executa no minuto 0 de cada hora, dia, mês e ano
     # Ou seja executa a cada 1h no minuto 0
-    - cron: "20 * * * *"
+    - cron: "0 * * * *"
 
 jobs:
   monitoramento:
