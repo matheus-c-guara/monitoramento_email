@@ -30,7 +30,6 @@ def request_id(auth_token, pipe_id, report_id):
     }
 
     response = requests.post(url, json=payload, headers=headers)
-    print(f"ID de download gerado: {qualificacao}")
     
     return json.loads(response.text)['data']['exportPipeReport']['pipeReportExport']['id']
 
