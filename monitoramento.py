@@ -13,6 +13,7 @@ import pandas as pd
 import requests
 import os
 import time
+import json
 
 # Configurações de API
 META_ACCESS_TOKEN = os.getenv("META_ACCESS_TOKEN")
