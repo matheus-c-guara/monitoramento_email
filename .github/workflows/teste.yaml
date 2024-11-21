@@ -1,4 +1,4 @@
-name: Monitoramento de Anúncios
+name: Teste com botão
 
 on:
  workflow_dispatch:
