@@ -17,7 +17,8 @@ jobs:
         python-version: 3.9
 
     - name: Instalar dependências
-      run: pip install requests
+      run: |
+          pip install requests pandas openpyxl
 
     - name: Executar o script de monitoramento
       env:
